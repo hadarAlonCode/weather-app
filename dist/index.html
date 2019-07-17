@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>  
+        <title>Weather App</title>
+         <link rel="stylesheet" href="style.css">  
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">  
+</head>
+
+<body>
+
+    <div id="container">
+        <div class="header"> 
+            <div class="title">Weather Checker</div>
+            <input class= "input" type="text" placeholder="Which city would you like to check?"><button class="cityButton">Check Weather</button>
+        </div>
+        <div class="weatherData"></div>
+    </div>
+
+
+    <script id="weather-template" type="text/x-handlebars-template">
+        
+         <div class="cityBox">
+             <div class="temperature">{{temperature}}</div>
+             <div class="name">{{name}}</div>
+             <div class="conditionPic"><img class= "img" src="{{conditionPic}}" alt="Weather" height="30px" width="30px"></div>
+             <div class= "condition">{{condition}}</div>
+             <div class="updateAt">{{updateAt}}</div>
+             <div class="saver"><button>save</button></div>
+        </div>
+       
+    </script>
+
+
+
+
+
+
+<script src="./jquery/dist/jquery.js"></script>
+<script src="./handlebars/dist/handlebars.js"></script>
+<script src="render.js"></script>
+<script src="TempManager.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
