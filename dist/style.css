@@ -7,7 +7,14 @@ body {
 }
 
 .cityBox {
-    background-color: beige
+    background-color: beige;
+    margin: 3px;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows:  */
+
+
+
+
 }
 
 

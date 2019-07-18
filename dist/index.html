@@ -19,19 +19,24 @@
 
 
     <script id="weather-template" type="text/x-handlebars-template">
-        
+        {{#each data}}
          <div class="cityBox">
-             <div class="temperature">{{temperature}}</div>
+             <div class="temperature">{{temperature}}°C</div>
              <div class="name">{{name}}</div>
              <div class="conditionPic"><img class= "img" src="{{conditionPic}}" alt="Weather" height="30px" width="30px"></div>
-             <div class= "condition">{{condition}}</div>
+             <div class="condition">{{condition}}</div>
              <div class="updateAt">{{updateAt}}</div>
              <div class="sunrise">Sunrise: {{sunrise}}</div>
              <div class="sunset">Sunset: {{sunset}}</div>
-             <div class="saver"><button>save</button></div>
-             <div class="remove"><button>remove</button></div>
+             <div class="saveDelete">
+                 {{#if isSaved}}
+                 <div class="remove"><i class="fas fa-heart"></i></div>
+                 {{else}}
+                <div class="saver"><i class="far fa-heart"></i></div>
+                {{/if}}
+            </div>
         </div>
-       
+       {{/each}}
     </script>
 
 

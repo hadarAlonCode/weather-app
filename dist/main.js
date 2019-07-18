@@ -3,13 +3,12 @@ const renderer = new Render
 const tempmanager = new TempManager
 
 
-let loadPage = function(){
-    tempmanager.getDataFromDB()
-    if (!tempmanager.cityData.length){ return}  
+let loadPage = async function(){
+    await tempmanager.getDataFromDB()
+    if (!tempmanager.cityData.length){ return }  
      renderer.renderData(tempmanager.cityData) 
 
 }
-
 
 let handleSearch =  async function(cityName) {
    await tempmanager.getCityData(cityName)
@@ -30,7 +29,9 @@ $(".cityButton").on("click", async function () {
 
 $(".weatherData").on("click", ".saver",  function () {
     let cityName = $(this).closest(".cityBox").find(".name").text()
+   
     tempmanager.saveCity(cityName)
+    loadPage()
 
 
  });

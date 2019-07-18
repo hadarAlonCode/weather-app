@@ -5,8 +5,7 @@ class Render {
 
         const source = $('#weather-template').html();
         const template = Handlebars.compile(source);
-        const newHTML = template(data);
-        console.log(data)
+        const newHTML = template({data});
         $('.weatherData').append(newHTML);
 
     }
