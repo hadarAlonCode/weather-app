@@ -4,24 +4,23 @@ const tempmanager = new TempManager
 
 
 let loadPage = function(){
-    let array = tempmanager.getDataFromDB()
-    renderer.renderData(array)
-}
+    tempmanager.getDataFromDB()
+    if (!tempmanager.cityData.length){ return}  
+     renderer.renderData(tempmanager.cityData) 
 
+}
 
 
 let handleSearch =  async function(cityName) {
-   let data = await $.get(`/city/${cityName}`)
-        tempmanager.getCityData(cityName)
-        renderer.renderData(data)
-
-    
+   await tempmanager.getCityData(cityName)
+        renderer.renderData(tempmanager.cityData)
 }
 
+
 // input click 
-$(".cityButton").on("click", function () {
+$(".cityButton").on("click", async function () {
     let cityName = $(".input").val();
-    handleSearch(cityName)
+    await handleSearch(cityName)
 
   });
 
@@ -30,16 +29,20 @@ $(".cityButton").on("click", function () {
 //save click
 
 $(".weatherData").on("click", ".saver",  function () {
-    // let temperature = $(this).closest(".cityBox").find(".temperature").text()
-    let name = $(this).closest(".cityBox").find(".name").text()
-    // let updateAt = $(this).closest(".cityBox").find(".updateAt").text()
-    // let condition = $(this).closest(".cityBox").find(".condition").text()
-    // let conditionPic = $(this).closest(".cityBox").find(".img").attr('src')
-    // let data = {name: name , temperature: temperature , updateAt: updateAt, condition: condition, conditionPic: conditionPic}
-      
+    let cityName = $(this).closest(".cityBox").find(".name").text()
+    tempmanager.saveCity(cityName)
 
-     $.post("/city", data ,function(response){
-        console.log(data);
-        
-     })
+
  });
+
+ //delete
+
+ $(".weatherData").on("click", ".remove",  function () {
+    let cityName = $(this).closest(".cityBox").find(".name").text()
+    tempmanager.removeCity(cityName)
+
+
+ });
+
+
+ loadPage()

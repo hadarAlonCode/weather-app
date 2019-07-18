@@ -1,15 +1,17 @@
 
+
 class TempManager {
 
     constructor() {
         this.cityData = [] 
     }
 
-    getDataFromDB() {
-        $.get(`/cities`, function(response){
+     getDataFromDB() {
+     $.get(`/cities`, (response) => {
             this.cityData = response
-        })
-    }
+    })
+    }   
+    
 
 
     async getCityData(cityName) {
@@ -18,14 +20,16 @@ class TempManager {
     }
 
 
-    
-    saveCity(cityName) {
-        City.findOne( { name: cityName } , function (err, city) {
+
+   saveCity(cityName) {
+   for (city of this.cityData) {
+       if (city.name == cityName ) {
             $.post("/city", city ,function(response){
                 console.log(city);
             })
-        })
-    }
+        }
+    }}
+
 
 
     removeCity(cityName){

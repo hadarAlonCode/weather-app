@@ -21,6 +21,9 @@ router.get('/city/:cityName', function (req, res) {
     citiesObj.updateAt = myData.current["last_updated"]
     citiesObj.condition = myData.current.condition.text
     citiesObj.conditionPic = myData.current.condition.icon
+    citiesObj.sunrise = myData.forecast.forecastday[0].astro.sunrise
+    citiesObj.sunset = myData.forecast.forecastday[0].astro.sunset
+
     
     res.send(citiesObj) 
      })
@@ -30,11 +33,10 @@ router.get('/city/:cityName', function (req, res) {
 
 // find all of the city data saved in your DB
 router.get('/cities', function (req, res) {
-   // This route should find all of the city data saved in your DB, and send it to the client
-   City.find({}).exec(function(err, data){
+  City.find({}).exec(function(err, data){
     res.send(data)
    })
- res.send(data) 
+ 
 })
 
 //=============================================
@@ -46,13 +48,12 @@ router.get('/cities', function (req, res) {
 
 router.post('/city', function (req, res) {
     let data = req.body
-
     let newCity = new City(data)
     newCity.save()
 
     res.end() 
- })
 
+})
  //===========================================
 
 
@@ -62,15 +63,10 @@ router.post('/city', function (req, res) {
 
  router.delete('/city/:cityName', function (req, res) {
     let cityName = req.params.cityName
-    // This route should take a cityName parameter
-// This route should find the city's data in your DB and remove it from your DB
-    City.findOne( { name: cityName } , function (err, city) {
-        city.remove(function (err) {
-            console.log(err) 
-        })
-}   )
- 
- res.end()
+     City.findOneAndRemove( {name: cityName} , function (err, city) {
+        res.end()
+    })
+
  })
 
 
