@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-mongoose.connect('mongodb://localhost/weatherDB', { useNewUrlParser: true })
+mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/weatherDB', { useNewUrlParser: true })
 
 app.use(express.static(path.join(__dirname, 'dist'))) 
 app.use(express.static(path.join(__dirname, 'node_modules')))
@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'img')))
 
 app.use('/', api)
 
-const port = 3000
+const port = process.env.PORT || 3000
 app.listen(port, function () {
     console.log(`Running on port ${port}`)
 })
