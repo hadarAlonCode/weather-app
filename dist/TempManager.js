@@ -8,9 +8,8 @@ class TempManager {
 
     async getDataFromDB() {
         let data = await $.get(`/cities`)
-        let time = data.forEach(a => {a.updateAt});
        
-        console.log(time);
+         console.log(data);
         
         
             this.cityData = data
