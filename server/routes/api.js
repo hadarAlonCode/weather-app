@@ -78,4 +78,41 @@ router.get('/', function (request, response) {
     response.send('Ending the cycle, thanks for visiting')  
 })
 
+
+// router.put('/city/:cityName', function (req, res) {
+//     console.log("Update is working")
+//     let cityName = req.params.cityName
+    
+//     request(`https://api.apixu.com/v1/forecast.json?key=${apiKey}&q=${cityName}`, function(err, response, body){
+//     let myData = JSON.parse(response.body || "{}") // all the api is in body object
+//     citiesObj = {}
+
+//     citiesObj.name = myData.location.name
+//     citiesObj.temperature = myData.current["temp_c"]
+//     citiesObj.updateAt = myData.current["last_updated"]
+//     citiesObj.condition = myData.current.condition.text
+//     citiesObj.conditionPic = myData.current.condition.icon
+//     citiesObj.sunrise = myData.forecast.forecastday[0].astro.sunrise
+//     citiesObj.sunset = myData.forecast.forecastday[0].astro.sunset
+
+
+//     db.cities.update(
+//         {
+//             name: cityName
+//         },
+//         {
+//             $set:
+//                 {
+//                     updateAt: myData.current["last_updated"]
+//                 }
+//         }
+//     )
+    
+//     res.send(citiesObj) 
+
+// })
+
+// })
+
+
 module.exports = router

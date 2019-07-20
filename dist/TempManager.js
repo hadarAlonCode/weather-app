@@ -7,11 +7,7 @@ class TempManager {
     }
 
     async getDataFromDB() {
-        let data = await $.get(`/cities`)
-       
-         console.log(data);
-        
-        
+        let data = await $.get(`/cities`)   
             this.cityData = data
     }
     
@@ -27,12 +23,10 @@ class TempManager {
         for ( let city of this.cityData) {
                 if (city.name == cityName ) {
                     city.isSaved = true
-                    // console.log(city)
                     $.post("/city", city )
                 }
             }
      }
-
 
 
     removeCity(cityName){
@@ -46,7 +40,24 @@ class TempManager {
     }
 
 
+    
+    // async updateCity(cityName){
+        
+    //     let update =  await  $.ajax({
+    //         url: "/city/" + cityName,
+    //         method: "PUT",
+    //         success: function (response) {
+    //             console.log(response)
+    //         }
+    //     })
+    //     this.cityData.push(update)
+    // }
+
 
 }
+
+
+
+
 
 

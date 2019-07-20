@@ -44,6 +44,18 @@ $(".weatherData").on("click", ".saver",  function () {
 
 
  });
+ 
+
+
+//  $(".weatherData").on("click", ".updateAt",  async function () {
+//     let cityName = $(this).closest(".cityBox").find(".name").text()
+//     await tempmanager.updateCity(cityName)
+//     renderer.renderData(tempmanager.cityData)
+
+
+//  });
+
+
 
 
  //click with enter

@@ -45,7 +45,7 @@ body {
     grid-area: c;
     align-self: center;
     text-align: center;
-    font-size: 3vh;
+    font-size: 4vh;
 }
 
 .conditionPic{
@@ -59,7 +59,7 @@ body {
     grid-area: o;
     align-self: center;
     text-align: center;
-    font-size: 1.8vh;
+    font-size: 2vh;
     margin-top: 7px
 }
 
