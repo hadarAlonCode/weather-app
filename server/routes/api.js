@@ -48,7 +48,9 @@ router.get('/cities', function (req, res) {
 
 router.post('/city', function (req, res) {
     let data = req.body
+    
     let newCity = new City(data)
+
     newCity.save()
 
     res.end() 
