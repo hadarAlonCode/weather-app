@@ -3,6 +3,8 @@
 
 <head>  
         <title>Weather App</title>
+        <link href="https://fonts.googleapis.com/css?family=Audiowide|Darker+Grotesque|Knewave|Source+Sans+Pro&display=swap" rel="stylesheet">
+
          <link rel="stylesheet" href="style.css">  
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">  
 </head>
@@ -12,7 +14,7 @@
     <div id="container">
         <div class="header"> 
             <div class="title">Weather Checker</div>
-            <input class= "input" type="text" placeholder="Which city would you like to check?"><button class="cityButton">Check Weather</button>
+            <div class="inputPart"><input class= "input" type="text" id="myInput" placeholder="Enter City..."><span id="myBtn" class="cityButton"><i class="fas fa-search"></i> </span></div>
         </div>
         <div class="weatherData"></div>
     </div>
@@ -23,11 +25,11 @@
          <div class="cityBox">
              <div class="temperature">{{temperature}}°C</div>
              <div class="name">{{name}}</div>
-             <div class="conditionPic"><img class= "img" src="{{conditionPic}}" alt="Weather" height="30px" width="30px"></div>
+             <div class="conditionPic"><img class= "img" src="{{conditionPic}}" alt="Weather" height="140px" width="140px"></div>
              <div class="condition">{{condition}}</div>
              <div class="updateAt">{{updateAt}}</div>
-             <div class="sunrise">Sunrise: {{sunrise}}</div>
-             <div class="sunset">Sunset: {{sunset}}</div>
+             <div class="sunrise">RIS:  {{sunrise}}</div>
+             <div class="sunset">SET:  {{sunset}}</div>
              <div class="saveDelete">
                  {{#if isSaved}}
                  <div class="remove"><i class="fas fa-heart"></i></div>

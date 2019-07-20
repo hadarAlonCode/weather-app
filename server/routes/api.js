@@ -12,19 +12,19 @@ router.get('/city/:cityName', function (req, res) {
     let cityName = req.params.cityName
     
     request(`https://api.apixu.com/v1/forecast.json?key=${apiKey}&q=${cityName}`, function(err, response, body){
-    let myData = JSON.parse(body || "{}") // all the api is in body object
+    let myData = JSON.parse(response.body || "{}") // all the api is in body object
     
-    citiesObj = {
-        name: myData.location.name,
-        temperature: myData.current.temp_c,
-        updateAt: myData.current.last_updated,
-        condition: myData.current.condition.text,
-        conditionPic: myData.current.condition.icon,
-        sunrise: myData.forecast.forecastday[0].astro.sunrise,
-        sunset: myData.forecast.forecastday[0].astro.sunset
-    }
+    citiesObj = {}
 
-    console.log(citiesObj);
+    citiesObj.name = myData.location.name
+    citiesObj.temperature = myData.current["temp_c"]
+    citiesObj.updateAt = myData.current["last_updated"]
+    citiesObj.condition = myData.current.condition.text
+    citiesObj.conditionPic = myData.current.condition.icon
+    citiesObj.sunrise = myData.forecast.forecastday[0].astro.sunrise
+    citiesObj.sunset = myData.forecast.forecastday[0].astro.sunset
+
+    
     res.send(citiesObj) 
      })
 })
@@ -48,12 +48,9 @@ router.get('/cities', function (req, res) {
 
 router.post('/city', function (req, res) {
     let data = req.body
-    data.isSaved = true
-    
     let newCity = new City(data)
-    console.log(newCity);
-    
     newCity.save()
+
     res.end() 
 
 })

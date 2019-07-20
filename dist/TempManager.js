@@ -8,6 +8,10 @@ class TempManager {
 
     async getDataFromDB() {
         let data = await $.get(`/cities`)
+       
+         console.log(data);
+        
+        
             this.cityData = data
     }
     
@@ -22,6 +26,7 @@ class TempManager {
      saveCity(cityName) {
         for ( let city of this.cityData) {
                 if (city.name == cityName ) {
+                    // console.log(city)
                     $.post("/city", city )
                 }
             }

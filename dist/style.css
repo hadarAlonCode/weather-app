@@ -4,6 +4,8 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: 'Source Sans Pro', sans-serif;
+
 }
 
 .cityBox {
