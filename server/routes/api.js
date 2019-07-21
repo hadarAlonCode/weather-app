@@ -49,13 +49,9 @@ router.get('/cities', function (req, res) {
 
 //take some data from the body, and save it as a new City to your DB
 
-router.post('/city', function (req, res) {
-    let data = req.body
-    
-    let newCity = new City(data)
-
+router.post('/city', function (req, res) { 
+    let newCity = new City(req.body)
     newCity.save()
-
     res.end() 
 
 })
