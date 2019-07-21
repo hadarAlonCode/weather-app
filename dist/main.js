@@ -43,7 +43,7 @@ $(".weatherData").on("click", ".saver",  function () {
  $(".weatherData").on("click", ".remove",  function () {
     let cityName = $(this).closest(".cityBox").find(".name").text()
     tempmanager.removeCity(cityName)
-    loadPage()
+    
 
 
  });
