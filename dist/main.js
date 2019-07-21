@@ -22,6 +22,7 @@ let handleSearch =  async function(cityName) {
 $(".cityButton").on("click", async function () {
     let cityName = $(".input").val();
     await handleSearch(cityName)
+    $(".input").val('')
 
   });
 
@@ -51,6 +52,8 @@ $(".weatherData").on("click", ".saver",  function () {
 
     $(".weatherData").on("click", ".trash",  function () {
         // loadPage()
+        let cityName = $(this).closest(".cityBox").find(".name").text()
+        tempmanager.removefromArr(cityName)
         $(this).closest(".cityBox").remove()
         
  })

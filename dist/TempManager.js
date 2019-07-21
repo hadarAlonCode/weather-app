@@ -6,6 +6,12 @@ class TempManager {
         this.cityData = [] 
     }
 
+    removefromArr(cityName){
+        for ( let i in this.cityData) {
+            if (this.cityData[i].name == cityName ) {
+                this.cityData.splice(i, 1)
+    }}}
+
     async getDataFromDB() {
         let data = await $.get(`/cities`)   
             this.cityData = data
