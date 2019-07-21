@@ -2,7 +2,7 @@
 const renderer = new Render
 const tempmanager = new TempManager
 
-
+//refresh
 let loadPage = async function(){
     await tempmanager.getDataFromDB()
     if (!tempmanager.cityData.length){ return }  
@@ -10,6 +10,8 @@ let loadPage = async function(){
 
 }
 
+
+// add city from the input val
 let handleSearch =  async function(cityName) {
    await tempmanager.getCityData(cityName)
         renderer.renderData(tempmanager.cityData)
@@ -66,6 +68,9 @@ $(".weatherData").on("click", ".saver",  function () {
     document.getElementById("myBtn").click();
    }
  });
+
+
+
 
 
 

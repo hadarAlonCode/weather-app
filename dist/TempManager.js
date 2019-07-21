@@ -23,6 +23,8 @@ class TempManager {
         for ( let city of this.cityData) {
                 if (city.name == cityName ) {
                     city.isSaved = true
+                    console.log(city);
+                    
                     $.post("/city", city )
                 }
             }

@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const moment = require('moment')
 const City = require('../models/City')
-const request = require('request') //install
+const request = require('request')
 const apiKey = "974200348f3d4230af8101511191707"
 
 
@@ -16,22 +16,25 @@ router.get('/city/:cityName', function (req, res) {
     
     citiesObj = {}
 
+
     citiesObj.name = myData.location.name
     citiesObj.temperature = myData.current["temp_c"]
-    citiesObj.updateAt = myData.current["last_updated"]
+    citiesObj.updateAt = myData.current.last_updated
     citiesObj.condition = myData.current.condition.text
     citiesObj.conditionPic = myData.current.condition.icon
     citiesObj.sunrise = myData.forecast.forecastday[0].astro.sunrise
     citiesObj.sunset = myData.forecast.forecastday[0].astro.sunset
 
     
+    
     res.send(citiesObj) 
      })
+     
 })
 
 
 
-// find all of the city data saved in your DB
+// find all of the city data from DB
 router.get('/cities', function (req, res) {
   City.find({}).exec(function(err, data){
     res.send(data)
@@ -57,7 +60,6 @@ router.post('/city', function (req, res) {
 
 })
  //===========================================
-
 
 
 
@@ -96,18 +98,7 @@ router.get('/', function (request, response) {
 //     citiesObj.sunset = myData.forecast.forecastday[0].astro.sunset
 
 
-//     db.cities.update(
-//         {
-//             name: cityName
-//         },
-//         {
-//             $set:
-//                 {
-//                     updateAt: myData.current["last_updated"]
-//                 }
-//         }
-//     )
-    
+//     
 //     res.send(citiesObj) 
 
 // })
