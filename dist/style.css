@@ -123,3 +123,11 @@ body {
 .header {
     color: white;
 }
+
+.saver:hover {
+ color: rgb(46, 160, 46)
+}
+
+.remove:hover{
+    color: rgb(243, 81, 81)
+}

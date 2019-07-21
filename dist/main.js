@@ -31,12 +31,12 @@ $(".cityButton").on("click", async function () {
 
 $(".weatherData").on("click", ".saver",  function () {
     let cityName = $(this).closest(".cityBox").find(".name").text()
-   
     tempmanager.saveCity(cityName)
     loadPage()
 
 
  });
+
 
  //delete
 
@@ -53,10 +53,7 @@ $(".weatherData").on("click", ".saver",  function () {
 //     let cityName = $(this).closest(".cityBox").find(".name").text()
 //     await tempmanager.updateCity(cityName)
 //     renderer.renderData(tempmanager.cityData)
-
-
 //  });
-
 
 
 
