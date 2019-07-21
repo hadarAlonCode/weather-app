@@ -62,7 +62,7 @@ router.post('/city', function (req, res) {
 
  router.delete('/city/:cityName', function (req, res) {
     let cityName = req.params.cityName
-     City.findOneAndRemove( {name: cityName} , function (err, city) {
+    City.findOneAndRemove( {name: cityName} , function (err, city) {
         res.end()
     })
 

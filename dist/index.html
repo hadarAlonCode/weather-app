@@ -31,12 +31,15 @@
              <div class="sunrise">RISE: {{sunrise}}</div>
              <div class="sunset">SET:  {{sunset}}</div>
              <div class="saveDelete">
+            
                  {{#if isSaved}}
                  <div class="remove"><i class="fas fa-heart"></i></div>
                  {{else}}
                 <div class="saver"><i class="far fa-heart"></i></div>
                 {{/if}}
+               
             </div>
+            <div class="trash"><i class="fas fa-trash-alt"></i></div>
         </div>
        {{/each}}
     </script>

@@ -27,7 +27,7 @@ body {
     grid-template-areas: 
     "b n o s"
     "b c i e"
-    "b c i u";
+    "t c i u";
     height: 14vh;
     border-radius: 20px;
     font-size: 30px;
@@ -55,7 +55,7 @@ body {
     grid-area: c;
     align-self: center;
     text-align: center;
-    font-size: 4vh;
+    font-size: 4.5vh;
 }
 
 .conditionPic{
@@ -144,4 +144,12 @@ body {
 
 .remove:hover{
     color: rgb(243, 81, 81)
+}
+
+.trash {
+    grid-area: t;
+    font-size: 150%;
+    text-align: center;
+    color: white;
+    /* margin-bottom: 40px; */
 }

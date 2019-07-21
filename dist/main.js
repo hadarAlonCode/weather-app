@@ -7,7 +7,7 @@ let loadPage = async function(){
     await tempmanager.getDataFromDB()
     if (!tempmanager.cityData.length){ return }  
      renderer.renderData(tempmanager.cityData) 
-
+   
 }
 
 
@@ -32,21 +32,28 @@ $(".cityButton").on("click", async function () {
 $(".weatherData").on("click", ".saver",  function () {
     let cityName = $(this).closest(".cityBox").find(".name").text()
     tempmanager.saveCity(cityName)
-    loadPage()
+    $(this).closest(".cityBox").find( ".saveDelete" ).append( "<div class='remove'><i class='fas fa-heart'></i></div>" );
+    $(this).closest(".cityBox").find( ".saver" ).remove()
+    // loadPage()
 
 
  });
 
 
- //delete
-
+ //delete from DB
  $(".weatherData").on("click", ".remove",  function () {
     let cityName = $(this).closest(".cityBox").find(".name").text()
     tempmanager.removeCity(cityName)
-    
+    $(this).closest(".cityBox").find( ".saveDelete" ).append( "<div class='saver'><i class='far fa-heart'></i></div>" );
+    $(this).closest(".cityBox").find( ".remove" ).remove()
 
+})
 
- });
+    $(".weatherData").on("click", ".trash",  function () {
+        // loadPage()
+        $(this).closest(".cityBox").remove()
+        
+ })
  
 
 

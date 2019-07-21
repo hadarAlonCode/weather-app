@@ -31,11 +31,11 @@ class TempManager {
 
 
     removeCity(cityName){
+
         $.ajax({
             url: "/city/" + cityName,
             method: "DELETE",
             success: function () {
-
              }   
         })
     }
