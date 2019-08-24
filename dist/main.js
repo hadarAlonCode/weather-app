@@ -27,7 +27,6 @@ $(".cityButton").on("click", async function () {
   });
 
 
-
 //save click
 
 $(".weatherData").on("click", ".saver",  function () {
@@ -60,14 +59,6 @@ $(".weatherData").on("click", ".saver",  function () {
  
 
 
-//  $(".weatherData").on("click", ".updateAt",  async function () {
-//     let cityName = $(this).closest(".cityBox").find(".name").text()
-//     await tempmanager.updateCity(cityName)
-//     renderer.renderData(tempmanager.cityData)
-//  });
-
-
-
  //click with enter
  var input = document.getElementById("myInput");
  input.addEventListener("keyup", function(event) {
@@ -76,10 +67,6 @@ $(".weatherData").on("click", ".saver",  function () {
     document.getElementById("myBtn").click();
    }
  });
-
-
-
-
 
 
 

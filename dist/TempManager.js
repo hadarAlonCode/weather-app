@@ -48,17 +48,7 @@ class TempManager {
 
 
     
-    // async updateCity(cityName){
-        
-    //     let update =  await  $.ajax({
-    //         url: "/city/" + cityName,
-    //         method: "PUT",
-    //         success: function (response) {
-    //             console.log(response)
-    //         }
-    //     })
-    //     this.cityData.push(update)
-    // }
+
 
 
 }
