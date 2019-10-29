@@ -22,12 +22,12 @@ body {
     background-color: beige;
     margin: 31px;
     display: grid;
-    grid-template-columns: 1fr 3fr 3fr 3fr;
+    grid-template-columns: 1fr 3fr 3fr ;
     grid-template-rows: repeat(3, 3fr);
     grid-template-areas: 
-    "b n o s"
-    "b c i e"
-    "t c i u";
+    "b n o "
+    "b c i "
+    "t c i ";
     height: 14vh;
     border-radius: 20px;
     font-size: 30px;
@@ -71,34 +71,6 @@ body {
     text-align: center;
     font-size: 2vh;
     margin-top: 7px
-}
-
-.sunrise{
-    grid-area: s;
-    align-self: center;
-    text-align: center;
-    font-size: 20px;
-    text-align: left;
-    font-size: 1.8vh;
-    
-}
-
-.sunset{
-    grid-area: e;
-    align-self: center;
-    text-align: center;
-    font-size: 20px;
-    text-align: left;
-    font-size: 1.8vh;
-}
-
-.updateAt{
-    grid-area: u;
-    align-self: center;
-    text-align: center;
-    font-size: 20px;
-    text-align: left;
-    font-size: 1.4vh;
 }
 
 
@@ -152,4 +124,9 @@ body {
     text-align: center;
     color: white;
     /* margin-bottom: 40px; */
+}
+
+.fas{
+    margin-bottom: 35px;
+
 }

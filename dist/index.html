@@ -13,7 +13,7 @@
 
     <div id="container">
         <div class="header"> 
-            <div class="title">Weather Checker</div>
+            <div class="title">Weather App</div>
             <div class="inputPart"><input class= "input" type="text" id="myInput" placeholder="Enter City..."><span id="myBtn" class="cityButton"><i class="fas fa-search"></i> </span></div>
         </div>
         <div class="weatherData"></div>
@@ -27,9 +27,6 @@
              <div class="name">{{name}}</div>
              <div class="conditionPic"><img class= "img" src="{{conditionPic}}" alt="Weather" height="140px" width="140px"></div>
              <div class="condition">{{condition}}</div>
-             <div class="updateAt"><i class="fas fa-redo"> </i> &nbsp {{updateAt}}</div>
-             <div class="sunrise">RISE: {{sunrise}}</div>
-             <div class="sunset">SET:  {{sunset}}</div>
              <div class="saveDelete">
             
                  {{#if isSaved}}

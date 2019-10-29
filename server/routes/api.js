@@ -3,7 +3,7 @@ const router = express.Router()
 const moment = require('moment')
 const City = require('../models/City')
 const request = require('request')
-const apiKey = "974200348f3d4230af8101511191707"
+const apiKey = "2ffbd31590fa86870fc6f2b1e0c441fc"
 
 
 
@@ -11,21 +11,15 @@ const apiKey = "974200348f3d4230af8101511191707"
 router.get('/city/:cityName', function (req, res) {
     let cityName = req.params.cityName
     
-    request(`https://api.apixu.com/v1/forecast.json?key=${apiKey}&q=${cityName}`, function(err, response, body){
+    request(`http://api.weatherstack.com/current?access_key=${apiKey}&query=${cityName}`, function(err, response, body){
     let myData = JSON.parse(response.body || "{}") // all the api is in body object
     
     citiesObj = {}
 
-
     citiesObj.name = myData.location.name
-    citiesObj.temperature = myData.current["temp_c"]
-    citiesObj.updateAt = myData.current.last_updated
-    citiesObj.condition = myData.current.condition.text
-    citiesObj.conditionPic = myData.current.condition.icon
-    citiesObj.sunrise = myData.forecast.forecastday[0].astro.sunrise
-    citiesObj.sunset = myData.forecast.forecastday[0].astro.sunset
-
-    
+    citiesObj.temperature = myData.current.temperature
+    citiesObj.condition = myData.current.weather_descriptions[0]
+    citiesObj.conditionPic = myData.current.weather_icons[0]
     
     res.send(citiesObj) 
      })

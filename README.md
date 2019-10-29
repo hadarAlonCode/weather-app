@@ -18,5 +18,3 @@
 - Add city to favorites
 - Delete from favorites
 - Delete from Dashboard
-- Displays sunset and sunrise time
-- Displays last updated time
